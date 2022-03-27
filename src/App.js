@@ -19,7 +19,7 @@ import ListHistory from "./components/ListHistory";
 function App() {
   return (
     <Container>
-      <MainHeader title="Budget App" />
+      <MainHeader title="Budget App1" />
       <Statistic size="small">
         <Statistic.Label>Your balance: </Statistic.Label>
         <Statistic.Value>5,854.78 </Statistic.Value>
