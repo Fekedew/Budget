@@ -2,11 +2,11 @@ import React from "react";
 import { Container } from "semantic-ui-react";
 import ListHistory from "./ListHistory";
 
-function EntryLists({entities}) {
+function EntryLists({entities, deletEntry}) {
     return (
         <Container>
             {entities.map( (entry) =>  (
-                <ListHistory message={entry.message} value={entry.value} isExpense={entry.isExpense} />
+                <ListHistory key={entry.id} {...entry} deletEntry={deletEntry} />
             ))};
         </Container>
     );

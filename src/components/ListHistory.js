@@ -1,11 +1,13 @@
 import React from "react";
 import { Segment, Grid, Icon } from "semantic-ui-react";
 function ListHistory({
-  segColor = "black",
-  message,
-  value,
-  isExpense = false,
-}) {
+    id,
+    message,
+    value,
+    isExpense = false,
+    deletEntry,
+  },
+  ) {
   return (
     <Segment color={isExpense ? "red" : "green"}>
       <Grid columns={3}>
@@ -18,7 +20,7 @@ function ListHistory({
           </Grid.Column>
           <Grid.Column width={3}>
             <Icon name="edit" bordered />
-            <Icon name="trash" bordered />
+            <Icon name="trash" bordered onClick={() => deletEntry(id) }/>
           </Grid.Column>
         </Grid.Row>
       </Grid>

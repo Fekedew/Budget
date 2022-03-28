@@ -17,8 +17,14 @@ import StatisticBalance from "./components/StatisticBalance";
 import ListHistory from "./components/ListHistory";
 import EntryLists from "./components/EntryLists";
 
+
 function App() {
   const [entities, setEntities] = useState(initialValues)
+
+  const deletEntry = (id) => {
+    const result = entities.filter((entry) => entry.id !== id);
+    setEntities(result);
+  }
   return (
     <Container>
       <MainHeader title="Budget App1" />
@@ -50,7 +56,7 @@ function App() {
       </Segment>
       <MainHeader type="h3" title="History" />
 
-      <EntryLists entities={entities} />
+      <EntryLists entities={entities} deletEntry={deletEntry} />
       <MainHeader title="Add new transaction" type="h3" />
       <NewEntryForm />
     </Container>
@@ -60,7 +66,7 @@ function App() {
 export default App;
 
 const initialValues = [
-  {message:"Remot work", value:"$6,212.00", isExpense:false},
-  {message:"Unlimited internet data", value:"$212.00", isExpense:true},
-  {message:"CBE is traine work", value:"$4,212.00", isExpense:false}
+  {id:1, message:"Remot work", value:"$6,212.00", isExpense:false},
+  {id:2, message:"Unlimited internet data", value:"$212.00", isExpense:true},
+  {id:3, message:"CBE is traine work", value:"$4,212.00", isExpense:false}
 ]
