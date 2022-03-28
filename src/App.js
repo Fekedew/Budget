@@ -1,5 +1,5 @@
 import "./App.css";
-import React from "react";
+import React, { useState } from "react";
 import "semantic-ui-css/semantic.min.css";
 import {
   Button,
@@ -15,8 +15,10 @@ import MainHeader from "./components/MainHeader";
 import NewEntryForm from "./components/NewEntryForm";
 import StatisticBalance from "./components/StatisticBalance";
 import ListHistory from "./components/ListHistory";
+import EntryLists from "./components/EntryLists";
 
 function App() {
+  const [entities, setEntities] = useState(initialValues)
   return (
     <Container>
       <MainHeader title="Budget App1" />
@@ -47,9 +49,8 @@ function App() {
         </Grid>
       </Segment>
       <MainHeader type="h3" title="History" />
-      <ListHistory message="Buy Toshiba Laptop" value="1,152.00" isExpense />
-      <ListHistory message="Graphics Design" value="250.00" />
-      <ListHistory message="Gaming Chair" value="450.00" isExpense />
+
+      <EntryLists entities={entities} />
       <MainHeader title="Add new transaction" type="h3" />
       <NewEntryForm />
     </Container>
@@ -57,3 +58,9 @@ function App() {
 }
 
 export default App;
+
+const initialValues = [
+  {message:"Remot work", value:"$6,212.00", isExpense:false},
+  {message:"Unlimited internet data", value:"$212.00", isExpense:true},
+  {message:"CBE is traine work", value:"$4,212.00", isExpense:false}
+]
