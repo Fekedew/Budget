@@ -14,7 +14,6 @@ import {
 import MainHeader from "./components/MainHeader";
 import NewEntryForm from "./components/NewEntryForm";
 import StatisticBalance from "./components/StatisticBalance";
-import ListHistory from "./components/ListHistory";
 import EntryLists from "./components/EntryLists";
 
 
@@ -25,6 +24,12 @@ function App() {
     const result = entities.filter((entry) => entry.id !== id);
     setEntities(result);
   }
+
+  const addEntry = (message, value) => {
+    const restult = entities.concat({id: entities.length+1, message, value})
+    setEntities(restult)
+  }
+
   return (
     <Container>
       <MainHeader title="Budget App1" />
@@ -58,7 +63,7 @@ function App() {
 
       <EntryLists entities={entities} deletEntry={deletEntry} />
       <MainHeader title="Add new transaction" type="h3" />
-      <NewEntryForm />
+      <NewEntryForm addEntry={addEntry}/>
     </Container>
   );
 }

@@ -7,7 +7,7 @@ function EntryLists({entities, deletEntry}) {
         <Container>
             {entities.map( (entry) =>  (
                 <ListHistory key={entry.id} {...entry} deletEntry={deletEntry} />
-            ))};
+            ))}
         </Container>
     );
 }
