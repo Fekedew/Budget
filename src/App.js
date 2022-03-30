@@ -25,8 +25,8 @@ function App() {
     setEntities(result);
   }
 
-  const addEntry = (message, value) => {
-    const restult = entities.concat({id: entities.length+1, message, value})
+  const addEntry = (message, value, isExpence) => {
+    const restult = entities.concat({id: entities.length+1, message, value, isExpence})
     setEntities(restult)
   }
 

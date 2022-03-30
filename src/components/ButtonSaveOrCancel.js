@@ -7,12 +7,13 @@ function ButtonSaveOrCancel({
   addEntry,
   message,
   value,
+  isExpence,
 }) {
   return (
     <Button.Group style={{ marginTop: 10 }}>
       <Button color={cancelColor}>{cancelMessage}</Button>
       <Button.Or />
-      <Button primary onClick={() => addEntry(message, value)}>{okMessage}</Button>
+      <Button primary onClick={() => addEntry(message, value, isExpence)}>{okMessage}</Button>
     </Button.Group>
   );
 }
